@@ -14,7 +14,7 @@
 <%= link_to 'Company', new_client_session_url %>
 <% end %> 
 or<% if student_signed_in? %>
-<%= link_to 'User', users_path %>
+<%= link_to 'User', user_path %>
 <% else %>
 <%= link_to 'User', new_student_session_url %>
 <% end %>

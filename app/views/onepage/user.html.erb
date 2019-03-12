@@ -1,0 +1,5 @@
+<%= javascript_pack_tag 'user' %>
+<%= stylesheet_pack_tag 'user' %>
+<div style="position: absolute; top: 15px; z-index: 1000; right: 80px; color: #ffffff;" class="nav-link">
+<%= link_to 'Log Out', destroy_student_session_url, method: :delete, :style => "padding: 18px"%>
+</div>
