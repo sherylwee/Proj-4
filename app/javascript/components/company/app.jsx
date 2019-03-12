@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Newitems from "./newitems";
-// import Newcompany from "./newcompany";
+import Newcompany from "./newcompany";
 import Edit from "./edit";
 import Logo from "../../../assets/images/logo";
-// import Companyitems from "./companyitems";
+import Companyitems from "./companyitems";
 
 import {
   Header,
