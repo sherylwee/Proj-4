@@ -1,26 +1,23 @@
-// Run this example by adding <%= javascript_pack_tag 'hello_react' %> to the head of your layout file,
-// like app/views/layouts/application.html.erb. All it does is render <div>Hello React</div> at the bottom
-// of the page.
-
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import App from '../components/company/app'
+import 'semantic-ui-css/semantic.min.css'
+// import '../../../dist/semantic.min.css';
 
-const Hello = props => (
-  <div>Hello {props.name}!</div>
-)
+// import Login from '../components/login'
+// import Newitems from '../components/newitems'
+import { BrowserRouter } from "react-router-dom";
 
-Hello.defaultProps = {
-  name: 'David'
-}
 
-Hello.propTypes = {
-  name: PropTypes.string
-}
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Hello name="React" />,
+    <div>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </div>,
     document.body.appendChild(document.createElement('div')),
   )
 })

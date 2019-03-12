@@ -1,10 +1,13 @@
 class CompaniesController < ApplicationController
+  protect_from_forgery unless: -> { request.format.json? }
+  before_action :authenticate_client!, :except => [ :show, :index ]
   before_action :set_company, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
 
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.all
+    @companies = Company.where(client_id: current_client)
   end
 
   # GET /companies/1
@@ -15,6 +18,7 @@ class CompaniesController < ApplicationController
   # GET /companies/new
   def new
     @company = Company.new
+    @items = Item.all
   end
 
   # GET /companies/1/edit
@@ -25,6 +29,8 @@ class CompaniesController < ApplicationController
   # POST /companies.json
   def create
     @company = Company.new(company_params)
+    @company.client_id = current_client.id
+    @company.item_id = @current_client.id
 
     respond_to do |format|
       if @company.save
@@ -69,6 +75,6 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:name, :string, :contact, :location, :description)
+      params.require(:company).permit(:name, :contact, :location, :description, :references, :item_id)
     end
 end

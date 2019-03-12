@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 2019_03_12_051206) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
-    t.string "string"
     t.integer "contact"
     t.string "location"
     t.text "description"

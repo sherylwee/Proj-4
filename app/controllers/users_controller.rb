@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
+  before_action :authenticate_student!, :except => [ :show, :index ]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.where(student_id: current_student)
   end
 
   # GET /users/1
@@ -25,6 +26,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    @user.student_id = current_student.id
 
     respond_to do |format|
       if @user.save
@@ -69,6 +71,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :contact, :email)
+      params.require(:user).permit(:name, :contact, :email, :references)
     end
 end

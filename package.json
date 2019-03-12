@@ -5,9 +5,14 @@
     "@babel/preset-react": "^7.0.0",
     "@rails/webpacker": "^4.0.2",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "cloudinary-react": "^1.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "react-dom": "^16.8.4",
+    "react-router-dom": "^4.3.1",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.85.0",
+    "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.2.1"
